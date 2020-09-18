@@ -1,3 +1,4 @@
+DELETE FROM peserta_pelatihan;
 DELETE FROM peserta;
 
 INSERT INTO peserta (id, nama, email, tanggal_lahir)
