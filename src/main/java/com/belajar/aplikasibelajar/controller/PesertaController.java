@@ -1,5 +1,7 @@
 package com.belajar.aplikasibelajar.controller;
 
+import javax.validation.Valid;
+
 import com.belajar.aplikasibelajar.dao.PesertaDao;
 import com.belajar.aplikasibelajar.entity.Peserta;
 
@@ -31,14 +33,14 @@ public class PesertaController {
     // input data peserta
     @RequestMapping(value = "/peserta", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void insertPesertabaru(@RequestBody Peserta p) {
+    public void insertPesertabaru(@RequestBody @Valid Peserta p) {
         pd.save(p);
     }
 
     // update data peserta
     @RequestMapping(value = "/peserta/{id}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updatePeserta(@PathVariable("id") String id, @RequestBody Peserta p) {
+    public void updatePeserta(@PathVariable("id") String id, @RequestBody @Valid Peserta p) {
         p.setId(id);
         pd.save(p);
     }
@@ -48,7 +50,6 @@ public class PesertaController {
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<Peserta> cariPesertaById(@PathVariable("id") String id) {
         Peserta hasil = pd.findById(id).orElse(null);
-        // ResponseEntity<Peserta> hasil = new ResponseEntity<>(HttpStatus.OK);
         if (hasil == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
