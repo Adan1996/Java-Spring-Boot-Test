@@ -11,3 +11,14 @@
 2. cd Java-Spring-Boot-Test
 3. code .
 4. mvn clean package
+
+# Working with spring boot
+1. add configuration below in pom.xml
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+2. mvn clean package
+3. mvn spring-boot:run
