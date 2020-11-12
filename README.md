@@ -50,3 +50,34 @@ To add validation dependencies, copy and paste the code below
     <version>3.0.0</version>
 </dependency>
 ```
+
+# Dockerizing
+```
+- install java 8 in linux server
+```
+
+setting up path on ".bashrc"
+add on the last line code bellow
+```
+JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64';
+export JAVA_HOME
+```
+
+run with maven
+```
+./mvnw package && java -jar target/gs-spring-boot-docker-0.1.0.jar
+```
+
+create Dockerfile copy text below
+```
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+```
+
+build Dockerfile
+```
+docker build -t springio/gs-spring-boot-docker .
+docker run -p 8080:8080 springio/gs-spring-boot-docker
+```
