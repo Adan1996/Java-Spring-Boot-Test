@@ -56,16 +56,16 @@ To add validation dependencies, copy and paste the code below
 - install java 8 in linux server
 ```
 
-setting up path on ".bashrc"
+setting up path on "/etc/environment"
 add on the last line code bellow
 ```
-JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64';
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export JAVA_HOME
 ```
 
 run with maven
 ```
-./mvnw package && java -jar target/gs-spring-boot-docker-0.1.0.jar
+sudo ./mvnw package && java -jar target/gs-spring-boot-docker-0.1.0.jar
 ```
 
 create Dockerfile copy text below
