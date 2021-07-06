@@ -51,7 +51,6 @@ To add validation dependencies, copy and paste the code below
 </dependency>
 ```
 
-# Dockerizing
 ```
 - install java 8 in linux server
 ```
@@ -67,7 +66,7 @@ run with maven
 ```
 sudo ./mvnw package && java -jar target/gs-spring-boot-docker-0.1.0.jar
 ```
-
+# Dockerizing
 create Dockerfile copy text below
 ```
 FROM openjdk:8-jdk-alpine
